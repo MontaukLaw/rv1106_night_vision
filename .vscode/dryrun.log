@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/marc/my_project/rv1106_yolo_server'
+make: Leaving directory '/home/marc/my_project/rv1106_yolo_server'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
