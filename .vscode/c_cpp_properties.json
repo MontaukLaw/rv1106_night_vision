@@ -4,7 +4,10 @@
       "name": "linux-gcc-x64",
       "includePath": [
         "${workspaceFolder}/**",
-        "${workspaceFolder}/include"
+        "${workspaceFolder}/include",
+        "/home/marc/rv1106/sysdrv/source/kernel/include/",
+        "/home/marc/rv1106/sysdrv/source/kernel/include/uapi/",
+        "/home/marc/rv1106/sysroot/usr/include/"
       ],
       "compilerPath": "/usr/bin/gcc",
       "cStandard": "${default}",
