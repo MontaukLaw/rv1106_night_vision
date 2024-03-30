@@ -1,8 +1,7 @@
 #include <sys/time.h>
 #include <stdio.h>
 #include <time.h>
-
-#define VIDEO_FOLDER "/mnt/sdcard/"
+#include "comm.h"
 
 void get_file_name_by_time(char *file_name_buf)
 {
@@ -20,7 +19,7 @@ void get_file_name_by_time(char *file_name_buf)
                           (long long)(pLocalTime->tm_min) * 100 +
                           (long long)(pLocalTime->tm_sec);
 
-    sprintf(file_name_buf, "%s%lld", VIDEO_FOLDER, time_long);
+    sprintf(file_name_buf, "%s%lld", IMAGE_FOLDER, time_long);
 
     printf("new file name = %s\n", file_name_buf);
 

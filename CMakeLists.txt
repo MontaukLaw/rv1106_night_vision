@@ -52,9 +52,14 @@ set(RKNN_RT_LIB ${CMAKE_SOURCE_DIR}/lib/librknnmrt.so)
 include_directories(${CMAKE_SOURCE_DIR}/3rdparty)
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
-#add_executable(app src/app.cc src/cmd_parser.cc src/detect.cc src/postprocess.cc)
-add_executable(app src/app.cc src/utils.cc src/preprocess.cc src/detect.cc src/postprocess.cc src/udp_file_sender.cpp)
-# target_link_libraries(app ${RKNN_RT_LIB} ${OPENCV_LIB})
+add_executable(app src/app.cc 
+                   src/utils.cc 
+                   src/preprocess.cc 
+                   src/detect.cc 
+                   src/postprocess.cc 
+                   src/udp_file_sender.cpp 
+                   src/gpio_value.cc)
+
 target_link_libraries(app ${RKNN_RT_LIB} ${OpenCV_LIBS} ${LIBJPEG_LIB})
 
 

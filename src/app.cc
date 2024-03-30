@@ -145,7 +145,7 @@ int get_image(char *file_name)
     return 0;
 }
 
-int main(int argc, char **argv)
+int main_process()
 {
     char file_name[100];
     get_image(file_name);
@@ -170,7 +170,7 @@ int main(int argc, char **argv)
     // imwrite("test.jpg", img);
 
     cv::Mat letterbox_img;
-    
+
     // letterbox尺寸为640x640
     letterbox_img = cv::Mat(640, 640, CV_8UC3);
 
@@ -181,4 +181,24 @@ int main(int argc, char **argv)
     start_detect("yolov5s-640-640.rknn", letter_box_jpeg, file_name, letterbox_img);
 
     return 0;
+}
+
+int main()
+{
+
+    int gpio_status = get_gpip_status();
+
+    while (1)
+    {
+        if (gpio_status)
+        {
+            printf("Main process\n");
+            main_process();
+        }
+        else
+        {
+            printf("Detect nothing\n");
+        }
+        sleep(1);
+    }
 }

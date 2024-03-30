@@ -494,7 +494,7 @@ int start_detect(char *model_path, char *input_path, char *file_prefix, cv::Mat 
 
         cv::imwrite(single_result_file_name, roi);
 
-        send_file_through_udp(single_result_file_name);
+        // send_file_through_udp(single_result_file_name);
     }
 
     char full_result_file_name[100];
