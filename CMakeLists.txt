@@ -62,5 +62,6 @@ add_executable(app src/app.cc
 
 target_link_libraries(app ${RKNN_RT_LIB} ${OpenCV_LIBS} ${LIBJPEG_LIB})
 
+add_executable(udp_cmd_server src/udp_cmd_server.cpp src/udp_file_sender.cpp)
 
 

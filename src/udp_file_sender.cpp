@@ -35,16 +35,6 @@ int send_file_through_udp(const char *file_name)
         return -1;
     }
 
-    // // 获取文件大小并读取内容
-    // std::streamsize size = file.tellg();
-    // file.seekg(0, std::ios::beg);
-    // std::vector<char> buffer(size);
-    // if (!file.read(buffer.data(), size))
-    // {
-    //     std::cerr << "Error: Cannot read file" << std::endl;
-    //     return -1;
-    // }
-
     // 创建UDP socket
     int sockfd = socket(AF_INET, SOCK_DGRAM, 0);
     if (sockfd < 0)
@@ -196,7 +186,8 @@ void runUDPServer()
         if (receivedString == "START_TRANSFORM")
         {
             std::cout << "Received 'START_TRANSFORM' command" << std::endl;
-            // 遍历/mnt/sdcard目录
+
+            // 遍历/mnt/sdcard目录后发送
             searchAndPrintFiles(IMAGE_FOLDER);
         }
         else
