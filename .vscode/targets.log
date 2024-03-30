@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Mar 15 15:44:28 2024
+# Make data base, printed on Fri Mar 29 22:21:21 2024
 
 # Variables
 
@@ -53,23 +53,19 @@ LC_NAME = en_HK.UTF-8
 # environment
 VSCODE_CWD = /home/marc
 # environment
-SSH_CONNECTION = 192.168.1.2 56458 192.168.1.88 22
+SSH_CONNECTION = 192.168.1.242 62272 192.168.1.88 22
 # environment
-PATH = /home/marc/.vscode-server/cli/servers/Stable-863d2581ecda6849923a2118d93a088b0745d9d6/server/bin/remote-cli:/home/marc/rv1106/toolchain/env/arm-rockchip830-linux-uclibcgnueabihf/bin:/opt/hisi-linux/x86-arm/arm-himix200-linux/bin:/opt/cmake/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/marc/esp/xtensa-lx106-elf/bin
-# environment
-VSCODE_CLI_REQUIRE_TOKEN = d9dccf06-ce4c-4cba-9196-d73e69dbd951
+PATH = /home/marc/.vscode-server/bin/863d2581ecda6849923a2118d93a088b0745d9d6/bin/remote-cli:/home/marc/rv1106/toolchain/env/arm-rockchip830-linux-uclibcgnueabihf/bin:/opt/hisi-linux/x86-arm/arm-himix200-linux/bin:/opt/cmake/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/marc/esp/xtensa-lx106-elf/bin
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-cde82f6b-b20b-4438-9e08-86351385ccb5.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-51c61317-3588-4964-afad-9bda0a5a5c6f.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
 %F = $(notdir $%)
-# environment
-SSL_CERT_FILE = /usr/lib/ssl/certs/ca-certificates.crt
 # environment
 PWD = /home/marc/my_project/rv1106_yolo_server
 # default
@@ -99,7 +95,7 @@ MAKECMDGOALS := all
 # environment
 SHLVL = 1
 # environment
-XDG_SESSION_ID = 3
+XDG_SESSION_ID = 630
 # environment
 USER = marc
 # environment
@@ -112,8 +108,6 @@ LC_MONETARY = en_HK.UTF-8
 LC_TELEPHONE = en_HK.UTF-8
 # default
 MAKE_COMMAND := make
-# environment
-OLDPWD = /home/marc/.vscode-server
 # default
 .VARIABLES := 
 # automatic
@@ -125,7 +119,7 @@ MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_CLIENT = 192.168.1.2 56458 22
+SSH_CLIENT = 192.168.1.242 62272 22
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -133,7 +127,7 @@ VSCODE_L10N_BUNDLE_LOCATION =
 # environment
 LC_PAPER = en_HK.UTF-8
 # environment
-BROWSER = /home/marc/.vscode-server/cli/servers/Stable-863d2581ecda6849923a2118d93a088b0745d9d6/server/bin/helpers/browser.sh
+BROWSER = /home/marc/.vscode-server/bin/863d2581ecda6849923a2118d93a088b0745d9d6/bin/helpers/browser.sh
 # environment
 VSCODE_HANDLES_SIGPIPE = true
 # default
@@ -146,8 +140,6 @@ LC_NUMERIC = en_HK.UTF-8
 LC_MEASUREMENT = en_HK.UTF-8
 # environment
 LC_ALL = C
-# environment
-SSL_CERT_DIR = /usr/lib/ssl/certs
 # automatic
 ^F = $(notdir $^)
 # default
@@ -167,7 +159,7 @@ LANG = C
 # environment
 MOTD_SHOWN = pam
 # variable set hash-table stats:
-# Load=78/1024=8%, Rehash=0, Collisions=13/100=13%
+# Load=74/1024=7%, Rehash=0, Collisions=13/96=14%
 
 # Pattern-specific Variable Values
 
@@ -175,9 +167,9 @@ MOTD_SHOWN = pam
 
 # Directories
 
-# . (device 66306, inode 13296465): 12 files, no impossibilities.
+# . (device 66306, inode 13296465): 22 files, no impossibilities.
 
-# 12 files, no impossibilities in 1 directories.
+# 22 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -227,13 +219,13 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 20 / storage = 165 B / avg = 8 B
-# current buf: size = 8162 B / used = 165 B / count = 20 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 30 / storage = 275 B / avg = 9 B
+# current buf: size = 8162 B / used = 275 B / count = 30 / avg = 9 B
 
-# strcache performance: lookups = 23 / hit rate = 13%
+# strcache performance: lookups = 33 / hit rate = 9%
 # hash-table stats:
-# Load=20/8192=0%, Rehash=0, Collisions=1/23=4%
-# Finished Make data base on Fri Mar 15 15:44:28 2024
+# Load=30/8192=0%, Rehash=0, Collisions=1/33=3%
+# Finished Make data base on Fri Mar 29 22:21:21 2024
 
  
 make: *** No rule to make target 'all'.  Stop.

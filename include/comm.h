@@ -27,10 +27,14 @@
 
 void parse_cmd(char* cmd, int cmd_len);
 
-int start_detect(char *model_path, char *input_path);
+int start_detect(char *model_path, char *input_path, char* file_prefix, cv::Mat letterbox_img);
 
 void get_file_name_by_time(char *file_name_buf);
 
 void letterbox(cv::Mat origin_img, cv::Mat letterbox_img);
+
+int send_file_through_udp(char* file_name);
+
+int get_gpip_status();
 
 #endif

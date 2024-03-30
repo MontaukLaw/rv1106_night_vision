@@ -16,7 +16,7 @@
                 Includes
 -------------------------------------------*/
 #include "rknn_api.h"
-
+#include "comm.h"
 #include <float.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -213,7 +213,7 @@ int NC1HWC2_int8_to_NCHW_float(const int8_t *src, float *dst, int *dims, int cha
 /*-------------------------------------------
                   Main Functions
 -------------------------------------------*/
-int start_detect(char *model_path, char *input_path)
+int start_detect(char *model_path, char *input_path, char *file_prefix, cv::Mat letterbox_img)
 {
 
     const float nms_threshold = NMS_THRESH;
@@ -417,8 +417,8 @@ int start_detect(char *model_path, char *input_path)
         int h = orig_output_attrs[i].n_dims > 2 ? orig_output_attrs[i].dims[2] : 1;
         int w = orig_output_attrs[i].n_dims > 3 ? orig_output_attrs[i].dims[3] : 1;
         int hw = h * w;
-        NC1HWC2_int8_to_NCHW_int8((int8_t *)output_mems[i]->virt_addr, (int8_t *)output_mems_nchw[i], (int *)output_attrs[i].dims,
-                                  channel, h, w);
+        NC1HWC2_int8_to_NCHW_int8((int8_t *)output_mems[i]->virt_addr, (int8_t *)output_mems_nchw[i],
+                                  (int *)output_attrs[i].dims, channel, h, w);
     }
 
     int model_width = 0;
@@ -473,13 +473,34 @@ int start_detect(char *model_path, char *input_path)
         int y1 = det_result->box.top;
         int x2 = det_result->box.right;
         int y2 = det_result->box.bottom;
+
         // draw box
         img.draw_rectangle(x1, y1, x2, y2, blue, 1, ~0U);
         img.draw_text(x1, y1 - 24, det_result->name, blue);
         // img.draw_text(x1, y1 - 12, score_result, blue);
+
+        int x = detect_result_group.results[i].box.left;                                            // 替换为你的起始x坐标
+        int y = detect_result_group.results[i].box.top;                                             // 替换为你的起始y坐标
+        int w = detect_result_group.results[i].box.right - detect_result_group.results[i].box.left; // 替换为矩形的宽度
+        int h = detect_result_group.results[i].box.bottom - detect_result_group.results[i].box.top; // 替换为矩形的高度
+
+        // 取出对应的范围的图像.
+        cv::Rect rect(x, y, w, h);
+        cv::Mat roi = letterbox_img(rect);
+
+        char single_result_file_name[100];
+        // 保存一张检测出的框中的图像
+        sprintf(single_result_file_name, "%s_%s_%d.jpg", file_prefix, det_result->name, i);
+
+        cv::imwrite(single_result_file_name, roi);
+
+        send_file_through_udp(single_result_file_name);
     }
 
-    img.save("./out.bmp");
+    char full_result_file_name[100];
+    sprintf(full_result_file_name, "%s_result_full.jpg", file_prefix);
+
+    img.save(full_result_file_name);
 
 exit:
     // Destroy rknn memory

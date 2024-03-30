@@ -6,7 +6,7 @@
 #define VIDEO_IN_HEIGHT 480
 #define BUFFER_FRAME_NUMBER 3
 
-int get_image(char *jpeg_file_name)
+int get_image(char *file_name)
 {
     printf("********start capture image********\n");
 
@@ -41,12 +41,14 @@ int get_image(char *jpeg_file_name)
         perror("设置格式失败\n");
         return -1;
     }
+
     // 检查设置参数是否生效
     if (ioctl(cameraFd, VIDIOC_G_FMT, &vfmt) < 0)
     {
         perror("Set video format MJPEG success\n");
         return -1;
     }
+
     else if (vfmt.fmt.pix.width == VIDEO_IN_WIDTH && vfmt.fmt.pix.height == VIDEO_IN_HEIGHT && vfmt.fmt.pix.pixelformat == V4L2_PIX_FMT_MJPEG)
     {
         printf("MJPEG: %dx%d\n", vfmt.fmt.pix.width, vfmt.fmt.pix.height);
@@ -117,8 +119,9 @@ int get_image(char *jpeg_file_name)
     }
 
     // 保存这一帧，格式为jpg
-
-    get_file_name_by_time(jpeg_file_name);
+    char jpeg_file_name[50];
+    get_file_name_by_time(file_name);
+    sprintf(jpeg_file_name, "%s.jpg", file_name);
 
     FILE *file = fopen(jpeg_file_name, "w+");
     printf("len:%d index:%d \n", buf.length, readbuffer.index);
@@ -144,8 +147,16 @@ int get_image(char *jpeg_file_name)
 
 int main(int argc, char **argv)
 {
+    char file_name[100];
+    get_image(file_name);
+
+    printf("File name :%s\r\n", file_name);
+
     char jpeg_file_name[100];
-    get_image(jpeg_file_name);
+    sprintf(jpeg_file_name, "%s.jpg", file_name);
+
+    char letter_box_jpeg[100];
+    sprintf(letter_box_jpeg, "%s_letterbox.jpg", file_name);
 
     // 使用opencv打开jpeg
     cv::Mat img = cv::imread(jpeg_file_name);
@@ -157,14 +168,17 @@ int main(int argc, char **argv)
 
     // for test
     // imwrite("test.jpg", img);
-    
+
     cv::Mat letterbox_img;
+    
     // letterbox尺寸为640x640
     letterbox_img = cv::Mat(640, 640, CV_8UC3);
 
     letterbox(img, letterbox_img);
 
-    cv::imwrite("letterbox.jpg", letterbox_img);
+    cv::imwrite(letter_box_jpeg, letterbox_img);
+
+    start_detect("yolov5s-640-640.rknn", letter_box_jpeg, file_name, letterbox_img);
 
     return 0;
 }

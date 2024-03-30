@@ -20,7 +20,7 @@ void get_file_name_by_time(char *file_name_buf)
                           (long long)(pLocalTime->tm_min) * 100 +
                           (long long)(pLocalTime->tm_sec);
 
-    sprintf(file_name_buf, "%s%lld.jpg", VIDEO_FOLDER, time_long);
+    sprintf(file_name_buf, "%s%lld", VIDEO_FOLDER, time_long);
 
     printf("new file name = %s\n", file_name_buf);
 
