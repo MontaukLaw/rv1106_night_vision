@@ -148,7 +148,12 @@ int get_image(char *file_name)
 int main_process()
 {
     char file_name[100];
-    get_image(file_name);
+    int ret = get_image(file_name);
+    if (ret < 0)
+    {
+        printf("get image failed\n");
+        return -1;
+    }
 
     printf("File name :%s\r\n", file_name);
 
@@ -190,6 +195,8 @@ int main()
 
     while (1)
     {
+        gpio_status = get_gpip_status();
+
         if (gpio_status)
         {
             printf("Main process\n");

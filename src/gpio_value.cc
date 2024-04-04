@@ -106,7 +106,7 @@ int get_gpip_status()
     // sleep(1); // 等待GPIO文件被创建
 
     // 设置GPIO方向为输入
-    setDirectionInput();
+    // setDirectionInput();
 
     // 读取GPIO值
     return readGPIO();
