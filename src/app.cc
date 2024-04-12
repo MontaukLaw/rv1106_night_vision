@@ -120,13 +120,17 @@ int get_image(char *file_name)
 
     // 保存这一帧，格式为jpg
     char jpeg_file_name[50];
-    get_file_name_by_time(file_name);
+
+    // 保存到原始图片文件夹
+    get_file_name_by_time(file_name, IMAGE_TYPE_ORIGIN);
+    
     sprintf(jpeg_file_name, "%s.jpg", file_name);
 
     FILE *file = fopen(jpeg_file_name, "w+");
     printf("len:%d index:%d \n", buf.length, readbuffer.index);
     fwrite(frm_base[readbuffer.index], buf.length, 1, file);
     fclose(file);
+    
     // 停止采集
     if (ioctl(cameraFd, VIDIOC_STREAMOFF, &type) < 0)
     {

@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Apr  1 20:10:07 2024
+# Make data base, printed on Fri Apr 12 18:59:52 2024
 
 # Variables
 
@@ -55,17 +53,17 @@ LC_NAME = en_HK.UTF-8
 # environment
 VSCODE_CWD = /home/marc
 # environment
-SSH_CONNECTION = 192.168.1.242 59115 192.168.1.88 22
+SSH_CONNECTION = 192.168.1.242 49390 192.168.1.88 22
 # environment
-PATH = /home/marc/.vscode-server/cli/servers/Stable-863d2581ecda6849923a2118d93a088b0745d9d6/server/bin/remote-cli:/home/marc/rv1106/toolchain/env/arm-rockchip830-linux-uclibcgnueabihf/bin:/opt/hisi-linux/x86-arm/arm-himix200-linux/bin:/opt/cmake/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/marc/esp/xtensa-lx106-elf/bin
+PATH = /home/marc/.vscode-server/cli/servers/Stable-5c3e652f63e798a5ac2f31ffd0d863669328dc4c/server/bin/remote-cli:/home/marc/rv1106/toolchain/env/arm-rockchip830-linux-uclibcgnueabihf/bin:/opt/hisi-linux/x86-arm/arm-himix200-linux/bin:/opt/cmake/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/marc/esp/xtensa-lx106-elf/bin
 # environment
-VSCODE_CLI_REQUIRE_TOKEN = 9e84c18e-a2e2-428f-81b7-e857074d6896
+VSCODE_CLI_REQUIRE_TOKEN = b67eef09-ef13-40a7-8746-c682c1d42f14
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-21411ff8-d7e8-4edb-934e-3f1f0b4af5c9.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-206b6ca1-1c5e-413f-aa06-4dbb7465eb5c.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
@@ -101,7 +99,7 @@ MAKECMDGOALS := all
 # environment
 SHLVL = 1
 # environment
-XDG_SESSION_ID = 662
+XDG_SESSION_ID = 1217
 # environment
 USER = marc
 # environment
@@ -125,7 +123,7 @@ MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_CLIENT = 192.168.1.242 59115 22
+SSH_CLIENT = 192.168.1.242 49390 22
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -133,7 +131,7 @@ VSCODE_L10N_BUNDLE_LOCATION =
 # environment
 LC_PAPER = en_HK.UTF-8
 # environment
-BROWSER = /home/marc/.vscode-server/cli/servers/Stable-863d2581ecda6849923a2118d93a088b0745d9d6/server/bin/helpers/browser.sh
+BROWSER = /home/marc/.vscode-server/cli/servers/Stable-5c3e652f63e798a5ac2f31ffd0d863669328dc4c/server/bin/helpers/browser.sh
 # environment
 VSCODE_HANDLES_SIGPIPE = true
 # default
@@ -227,12 +225,14 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 32 / storage = 307 B / avg = 9 B
-# current buf: size = 8162 B / used = 307 B / count = 32 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 32 / storage = 287 B / avg = 8 B
+# current buf: size = 8162 B / used = 287 B / count = 32 / avg = 8 B
 
 # strcache performance: lookups = 35 / hit rate = 8%
 # hash-table stats:
 # Load=32/8192=0%, Rehash=0, Collisions=1/35=3%
-# Finished Make data base on Mon Apr  1 20:10:07 2024
+# Finished Make data base on Fri Apr 12 18:59:52 2024
 
  
+make: *** No rule to make target 'all'.  Stop.
+

@@ -3,7 +3,7 @@
 #include <time.h>
 #include "comm.h"
 
-void get_file_name_by_time(char *file_name_buf)
+void get_file_name_by_time(char *file_name_buf, uint8_t file_type)
 {
     time_t timep;
     struct tm *pLocalTime;
@@ -18,9 +18,17 @@ void get_file_name_by_time(char *file_name_buf)
                           (long long)(pLocalTime->tm_hour) * 10000 +
                           (long long)(pLocalTime->tm_min) * 100 +
                           (long long)(pLocalTime->tm_sec);
+    switch (file_type)
+    {
 
-    sprintf(file_name_buf, "%s%lld", IMAGE_FOLDER, time_long);
+    case IMAGE_TYPE_ORIGIN:
+        sprintf(file_name_buf, "%s%lld", ORIGIN_IMAGE_FOLDER, time_long);
+        break;
+
+    case IMAGE_TYPE_TARGET:
+        sprintf(file_name_buf, "%s%lld", TARGET_IMAGE_FOLDER, time_long);
+        break;
+    }
 
     printf("new file name = %s\n", file_name_buf);
-
 }

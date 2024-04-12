@@ -25,11 +25,17 @@
 #include "opencv2/core.hpp"
 #include "opencv2/highgui.hpp"
 
+#define IMAGE_TYPE_ORIGIN 1
+#define IMAGE_TYPE_TARGET 2
+
+#define ORIGIN_IMAGE_FOLDER "/mnt/sdcard/imgs/origin/"
+#define TARGET_IMAGE_FOLDER "/mnt/sdcard/imgs/target/"
+
 void parse_cmd(char *cmd, int cmd_len);
 
 int start_detect(char *model_path, char *input_path, char *file_prefix, cv::Mat letterbox_img);
 
-void get_file_name_by_time(char *file_name_buf);
+void get_file_name_by_time(char *file_name_buf, uint8_t file_type);
 
 void letterbox(cv::Mat origin_img, cv::Mat letterbox_img);
 
@@ -39,6 +45,6 @@ int get_gpip_status();
 
 void runUDPServer();
 
-#define IMAGE_FOLDER "/mnt/sdcard/imgs/"
+
 
 #endif

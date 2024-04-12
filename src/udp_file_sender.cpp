@@ -14,7 +14,7 @@
 #include <iostream>
 #include <string>
 
-#define SERVER_IP "192.168.1.88"
+#define SERVER_IP "192.168.1.33"
 #define SERVER_PORT 8888
 #define CMD_SERVER_PORT 7777
 
@@ -183,12 +183,19 @@ void runUDPServer()
         std::string receivedString(buffer);
 
         // 判断接收到的数据
-        if (receivedString == "START_TRANSFORM")
+        if (receivedString == "START_TRANSFORM_ORIGIN")
         {
-            std::cout << "Received 'START_TRANSFORM' command" << std::endl;
+            std::cout << "Received 'START_TRANSFORM_ORIGIN' command" << std::endl;
 
             // 遍历/mnt/sdcard目录后发送
-            searchAndPrintFiles(IMAGE_FOLDER);
+            searchAndPrintFiles(ORIGIN_IMAGE_FOLDER);
+        }
+        else if (receivedString == "START_TRANSFORM_TARGET")
+        {
+            std::cout << "Received 'START_TRANSFORM_TARGET' command" << std::endl;
+
+            // 遍历/mnt/sdcard目录后发送
+            searchAndPrintFiles(TARGET_IMAGE_FOLDER);
         }
         else
         {

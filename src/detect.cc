@@ -461,6 +461,10 @@ int start_detect(char *model_path, char *input_path, char *file_prefix, cv::Mat 
     char score_result[64];
     const unsigned char blue[] = {0, 0, 255};
     char text[256];
+
+    char target_prefix_file_name[100];
+    get_file_name_by_time(target_prefix_file_name, IMAGE_TYPE_TARGET);
+
     for (int i = 0; i < detect_result_group.count; i++)
     {
         detect_result_t *det_result = &(detect_result_group.results[i]);
@@ -490,17 +494,16 @@ int start_detect(char *model_path, char *input_path, char *file_prefix, cv::Mat 
 
         char single_result_file_name[100];
         // 保存一张检测出的框中的图像
-        sprintf(single_result_file_name, "%s_%s_%d.jpg", file_prefix, det_result->name, i);
+        sprintf(single_result_file_name, "%s_%s_%d.jpg", target_prefix_file_name, det_result->name, i);
 
         cv::imwrite(single_result_file_name, roi);
 
         // send_file_through_udp(single_result_file_name);
     }
 
-    char full_result_file_name[100];
-    sprintf(full_result_file_name, "%s_result_full.jpg", file_prefix);
-
-    img.save(full_result_file_name);
+    // char full_result_file_name[100];
+    // sprintf(full_result_file_name, "%s_result_full.jpg", target_prefix_file_name);
+    // img.save(full_result_file_name);
 
 exit:
     // Destroy rknn memory
