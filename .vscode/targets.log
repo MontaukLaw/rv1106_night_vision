@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Apr 12 18:59:52 2024
+# Make data base, printed on Sat Apr 13 18:28:14 2024
 
 # Variables
 
@@ -63,7 +63,7 @@ XDG_RUNTIME_DIR = /run/user/1000
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-206b6ca1-1c5e-413f-aa06-4dbb7465eb5c.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-3b46eba1-0f66-4b2d-afe9-bb65183e71d5.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
@@ -231,7 +231,7 @@ GNUmakefile:
 # strcache performance: lookups = 35 / hit rate = 8%
 # hash-table stats:
 # Load=32/8192=0%, Rehash=0, Collisions=1/35=3%
-# Finished Make data base on Fri Apr 12 18:59:52 2024
+# Finished Make data base on Sat Apr 13 18:28:14 2024
 
  
 make: *** No rule to make target 'all'.  Stop.
